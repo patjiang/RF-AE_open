@@ -27,6 +27,6 @@ def train(inp_size=800, epochs = 200, dataset = torch.randn(1000, 800), device =
       optim.step()
       epclosses.append(loss.detach().cpu().item())
     mu, var = statistics.mean(epclosses), statistics.variance(epclosses)
-    printf('epoch {epoch}, mean = {mu:.3f}, var = {var:.3f}')
+    print(f'epoch {epoch}, mean = {mu:.3f}, var = {var:.3f}')
     loss.append(mu)
   return loss
