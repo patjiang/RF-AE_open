@@ -9,7 +9,7 @@ from .loss import *
 def train_step(model, data):
   recon, z = model(data)
   #@TODO: Replace with RF-PHATE
-  dummy_z = torch.randn(1, 2).to(device)
+  dummy_z = torch.randn(1, 2).to(data.device)
   loss = compound_loss((data, recon), (z, dummy_z))
   return loss
   
