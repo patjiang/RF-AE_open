@@ -6,8 +6,8 @@ import statistics
 from .ae import *
 from .loss import *
 
-def train_step(AE, data):
-  recon, z = AE(data)
+def train_step(model, data):
+  recon, z = model(data)
   #@TODO: Replace with RF-PHATE
   dummy_z = torch.randn(1, 2).to(device)
   loss = compound_loss((data, recon), (z, dummy_z))
@@ -23,7 +23,7 @@ def train(inp_size=800, epochs = 200, dataset = torch.randn(1000, 800)):
     epclosses = []
     for data in dataset:
       optim.zero_grad()
-      loss = train_step(AE, data.to(device))
+      loss = train_step(temp_model, data.to(device))
       loss.backward()
       optim.step()
       epclosses.append(loss.detach().cpu().item())
