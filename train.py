@@ -12,14 +12,12 @@ def train_step(AE, data):
   dummy_z = torch.randn(1, 2).to(device)
   loss = compound_loss((data, recon), (z, dummy_z))
   return loss
-
-def train():
+  
+#TODO: Replace with datast object that uses RF-GAP from raw data to prob. measures
+def train(inp_size=800, epochs = 200, dataset = torch.randn(1000, 800).to(device)):
   device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-  temp_model = AE(800).to(device)
-  optim = torch.optim.Adam(temp_model.parameter(), lr = 1e-3)
-  epochs = 200
-  #TODO: Replace with datast object that uses RF-GAP from raw data to prob. measures
-  dataset = torch.randn(1000, 800).to(device)
+  temp_model = AE(inp_size).to(device)
+  optim = torch.optim.Adam(temp_model.parameters(), lr = 1e-3)
   loss = []
   for epoch in tqdm(range(epochs)):
     epclosses = []
