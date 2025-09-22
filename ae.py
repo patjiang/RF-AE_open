@@ -30,7 +30,7 @@ class AE(nn.Module):
       nn.ELU(),
       nn.Linear(100, 400),
       nn.ELU(),
-      nn.Linear(100, 2),
+      nn.Linear(400, 800),
       nn.Softmax()
     )
   def forward(self, p_x):
