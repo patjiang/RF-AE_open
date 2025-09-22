@@ -13,7 +13,7 @@ def reconstruction_loss(p, p_hat):
 
 
 def geom_reg_loss(z, z_hat):
-  return ((z.sub(z_hat))**2)).sum(dim=list(range(1, z.dim())))
+  return ((z.sub(z_hat))**2).sum(dim=list(range(1, z.dim())))
 
 
 def compound_loss(ps, zs, r_lambda=0.01):
