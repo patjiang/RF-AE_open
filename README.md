@@ -4,7 +4,9 @@
 https://github.com/jakerhodes/RF-PHATE
 
 #@TODO: Implement Loss functions
+(Done, untested)
 
 #@TODO: AE implementation
+(Done, untested)
 
 #@TODO: Setup Benchmarking
