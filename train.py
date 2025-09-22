@@ -15,7 +15,7 @@ def train_step(AE, data):
 
 def train():
   device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-  temp_model = AE().to(device)
+  temp_model = AE(800).to(device)
   optim = torch.optim.Adam(temp_model.parameter(), lr = 1e-3)
   epochs = 200
   #TODO: Replace with datast object that uses RF-GAP from raw data to prob. measures
