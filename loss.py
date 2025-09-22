@@ -19,6 +19,6 @@ def geom_reg_loss(z, z_hat):
 def compound_loss(ps, zs, r_lambda=0.01):
   p, ph = ps
   z, zh = zs
-  recon = reconstruction_loss(p, ph).mult(r_lambda)
-  geoml = geom_reg_loss(z, zh).mult(1-r_lambda)
+  recon = reconstruction_loss(p, ph).mul(r_lambda)
+  geoml = geom_reg_loss(z, zh).mul(1-r_lambda)
   return (recon.add(geoml)).mean()
