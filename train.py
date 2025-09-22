@@ -17,7 +17,7 @@ def train_step(model, data):
 def train(inp_size=800, epochs = 200, dataset = torch.randn(1000, 800), device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')):
   temp_model = AE(inp_size).to(device)
   optim = torch.optim.Adam(temp_model.parameters(), lr = 1e-3)
-  loss = []
+  losses = []
   for epoch in tqdm(range(epochs)):
     epclosses = []
     for data in dataset:
@@ -28,5 +28,5 @@ def train(inp_size=800, epochs = 200, dataset = torch.randn(1000, 800), device =
       epclosses.append(loss.detach().cpu().item())
     mu, var = statistics.mean(epclosses), statistics.variance(epclosses)
     print(f'epoch {epoch}, mean = {mu:.3f}, var = {var:.3f}')
-    loss.append(mu)
-  return loss
+    losses.append(mu)
+  return losses
