@@ -3,8 +3,8 @@ from torch.utils.data import DataLoader
 from tqdm import tqdm
 import statistics
 
-from ae import *
-from loss import *
+from .ae import *
+from .loss import *
 
 def train_step(AE, data):
   recon, z = AE(data)
