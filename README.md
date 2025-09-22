@@ -7,6 +7,8 @@ https://github.com/jakerhodes/RF-GAP-R
 #temporary; they definitely use a python version
 majorly needs ^^
 
+#@TODO: Integrate FasterPAM (https://github.com/kno10/python-kmedoids) in order to take the dissimilarity matrix from RF-GP probabilities
+
 #@TODO: Implement Loss functions
 
 (Done, untested)
